@@ -1,0 +1,336 @@
+/*@tailwind base;*/
+
+/**
+ * Custom base styles
+ */
+
+* {
+  /* Text rendering */
+  text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -webkit-text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* :focus {
+  outline: none !important;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter var", Roboto, Helvetica Neue, Arial, sans-serif;
+  background-color: #121212;
+}
+
+body {
+  font-size: 14px;
+  line-height: 1.4;
+  overflow-x: hidden;
+  font-feature-settings: "salt";
+}
+
+html,
+body {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+#root {
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+.h1 {
+  font-size: 24px;
+}
+
+h2,
+.h2 {
+  font-size: 20px;
+}
+
+h3,
+.h3 {
+  font-size: 16px;
+}
+
+h4,
+.h4 {
+  font-size: 15px;
+}
+
+h5,
+.h5 {
+  font-size: 13px;
+}
+
+h6,
+.h6 {
+  font-size: 12px;
+}
+
+.ps > .ps__rail-y,
+.ps > .ps__rail-x {
+  z-index: 99;
+}
+
+a[role="button"] {
+  text-decoration: none;
+}
+
+[role="tooltip"] {
+  z-index: 9999;
+}
+
+.MuiModal-root {
+  z-index: 9999;
+}
+
+.remove-item-action {
+  max-height: 0;
+  transition: 0.4s linear;
+  overflow: hidden;
+  color: red;
+  text-align: center;
+  margin: 0px !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+
+  width: 100%;
+}
+.cart-items:hover .remove-item-action {
+  max-height: 45px;
+  margin: 0;
+  padding: 10px 0px !important;
+}
+
+.mytoggle {
+  opacity: 1;
+  transition: visibility 1s, opacity 0.5s ease-in;
+}
+
+.my-actions {
+  margin: 0 2em;
+}
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
+}
+.order-3 {
+  order: 3;
+}
+
+.right-gap {
+  margin-right: auto;
+}
+
+.summary {
+  /* Initial styles for the summary */
+  /* Add any styling you want for the non-sticky state */
+  transition: all 0.3s;
+}
+
+.sticky-summary {
+  position: sticky;
+  top: 50px; /* Stick to the top of the viewport */
+  z-index: 100; /* Adjust the z-index as needed */
+  /* Add any styling you want for the sticky state */
+}
+
+.swal2-container {
+  z-index: 10000 !important; /* Adjust value to be higher than Material-UI Modal */
+}
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Medium Devices, Desktops Only */
+@media only screen and (min-width: 992px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  ::-webkit-scrollbar:hover {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    border-radius: 20px;
+  }
+}
+
+form label {
+  z-index: 99;
+}
+
+body.no-animate *,
+body.no-animate *::before,
+body.no-animate *::after {
+  transition: none !important;
+  animation: none !important;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Removes webkit's autofill backgorund color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transitiondelay: 9999s;
+  transitionproperty: background-color, color;
+}
+
+:focus {
+  outline-color: transparent;
+}
+
+/*fullcalendar Fix*/
+.fc-scrollgrid-section-liquid {
+  height: 1px !important;
+}
+
+.custom-snackbar-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 52px; /* Adjust as needed */
+  margin-right: 8px; /* Adjust as needed */
+  z-index: 99;
+}
+
+@media (min-width: 768px) {
+  .custom-snackbar-container {
+    margin-bottom: 68px; /* Adjust as needed for medium devices */
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-snackbar-container {
+    margin-right: 80px; /* Adjust as needed for large devices */
+  }
+}
+.swal2-styled.swal2-confirm,
+.swal2-styled.swal2-cancel {
+  /* Your custom styles here */
+  background-color: #3085d6;
+}
+
+.swal2-styled.swal2-cancel {
+  background-color: #aaa;
+}
+
+/* Style for SweetAlert2 "Deny" button (e.g. Download Invoice) */
+.swal2-styled.swal2-deny {
+  background-color: #7066e0 !important;
+  border-color: #7066e0 !important;
+  color: #fff !important;
+}
+
+.swal2-styled.swal2-deny:hover {
+  background-color: #5850c5 !important;
+}
