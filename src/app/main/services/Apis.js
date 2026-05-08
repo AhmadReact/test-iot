@@ -3,14 +3,13 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const iotAPI = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.REACT_APP_API}`,
+    baseUrl: `${process.env.REACT_APP_API || '/api/'}`,
     prepareHeaders: (headers, { endpoint }) => {
       // Don't set Content-Type for addSimsAndPlans endpoint (it uses FormData)
       // RTK Query will automatically handle FormData and set Content-Type with boundary
       if (endpoint !== 'addSimsAndPlans') {
         headers.set('Content-Type', 'application/json');
       }
-      headers.set('Authorization', process.env.REACT_APP_API_AUTH);
       return headers;
     },
   }),

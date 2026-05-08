@@ -1,7 +1,7 @@
 import secureLocalStorage from 'react-secure-storage';
 
-const url = process.env.REACT_APP_API;
-const auth = process.env.REACT_APP_API_AUTH;
+const url = process.env.REACT_APP_API || '/api/';
+const auth = '';
 
 export function signinWithApi(email, password) {
   return new Promise((resolve, reject) => {
