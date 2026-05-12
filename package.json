@@ -19,9 +19,7 @@
     "@reduxjs/toolkit": "1.8.5",
     "autosuggest-highlight": "3.3.4",
     "axios": "0.27.2",
-    "axios-mock-adapter": "1.21.2",
     "clsx": "1.2.1",
-    "cors": "^2.8.5",
     "crypto-js": "4.1.1",
     "date-fns": "2.29.1",
     "draft-js": "0.11.7",
@@ -29,7 +27,6 @@
     "formik": "^2.4.6",
     "framer-motion": "7.2.0",
     "history": "5.3.0",
-    "http-proxy-middleware": "^3.0.5",
     "i18next": "21.9.1",
     "imask": "^6.4.3",
     "jwt-decode": "3.1.2",
@@ -37,6 +34,7 @@
     "lodash": "4.17.21",
     "mobile-detect": "1.4.5",
     "moment": "2.29.4",
+    "next": "^16.2.6",
     "notistack": "1.0.6-next.3",
     "papaparse": "^5.3.2",
     "perfect-scrollbar": "1.5.5",
@@ -64,81 +62,37 @@
     "stylis": "4.1.1",
     "stylis-plugin-rtl": "2.1.1",
     "sweetalert2": "^11.6.16",
-    "web-vitals": "2.1.4",
     "yup": "^0.32.11"
   },
-  "peerDependencies": {
-    "autoprefixer": "10.4.7",
-    "postcss": "8.4.13",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "resolutions": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "babel-loader": "8.1.0"
-  },
   "devDependencies": {
-    "@babel/core": "7.17.10",
     "@babel/eslint-parser": "7.17.0",
-    "@babel/node": "7.17.10",
-    "@babel/preset-env": "7.17.10",
     "@babel/preset-react": "7.16.7",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.4",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "ajv": "^8.20.0",
-    "autoprefixer": "^9.8.8",
-    "cross-env": "7.0.3",
+    "autoprefixer": "^10.4.0",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-flowtype": "^5.10.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unused-imports": "^1.1.5",
-    "immutable": "4.0.0",
     "postcss": "^8.4.5",
     "prettier": "^2.4.1",
-    "promise": "8.1.0",
-    "react-app-alias": "2.2.0",
-    "react-app-rewired": "2.2.1",
-    "react-scripts": "5.0.1",
-    "source-map-explorer": "2.5.2",
     "tailwindcss": "^3.1.8",
-    "typescript": "4.6.4",
-    "util": "^0.12.4"
+    "typescript": "4.6.4"
   },
   "scripts": {
-    "start": "react-app-rewired  start",
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider GENERATE_SOURCEMAP=false react-app-rewired build",
-    "test": "react-app-rewired test --env=node",
-    "eject": "react-app-rewired eject",
-    "build-docs": "babel-node --presets @babel/preset-env src/app/main/documentation/material-ui-components/build.js",
-    "analyze": "react-app-rewired build && source-map-explorer 'build/static/js/*.js' --html analyze-result.html",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=7.0.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 3 safari version"
-    ]
-  },
-  "proxy": "https://randomservice.com"
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
 }

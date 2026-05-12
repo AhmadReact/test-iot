@@ -33,6 +33,15 @@ import { showMessage } from 'app/store/fuse/messageSlice';
 import FuseLoading from '@fuse/core/FuseLoading/FuseLoading';
 import { setUser } from 'app/store/userSlice';
 import _ from '@lodash';
+
+function clientNavigate(navigate, path) {
+  if (typeof window !== 'undefined' && window.__NEXT_DATA__) {
+    window.location.assign(path);
+    return;
+  }
+  navigate(path);
+}
+
 /**
  * Form Validation Schema
  */
@@ -105,7 +114,7 @@ function SignInPage() {
 
             dispatch(setUser(user));
 
-            navigate('/dashboards/subscriptions');
+            clientNavigate(navigate, '/dashboards/subscriptions');
           });
         });
       } else {
@@ -177,7 +186,7 @@ function SignInPage() {
                     id: detail.id,
                   })
                 );
-                navigate('/dashboards/subscriptions');
+                clientNavigate(navigate, '/dashboards/subscriptions');
               });
             });
           });
@@ -225,7 +234,7 @@ function SignInPage() {
             allowEscapeKey: false,
 
             preConfirm: () => {
-              navigate('/sign-in');
+              clientNavigate(navigate, '/sign-in');
             },
           });
         }

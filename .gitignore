@@ -3,41 +3,55 @@
 # dependencies
 /node_modules
 /.yarn
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.eslintcache
-
-/.idea
-/.vscode
-
-/src/styles/tailwind.css
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-.yarn/*
+/.pnp
+.pnp.*
+/.yarn/*
 !.yarn/patches
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
+
+# testing / coverage
+/coverage
+
+# Next.js build output
+/.next
+/out
+next-env.d.ts
+
+# CRA legacy build output (kept for safety)
+/build
+
+# Vercel
+/.vercel
+
+# misc
+.DS_Store
+Thumbs.db
+.eslintcache
+*.tsbuildinfo
+
+/.idea
+/.vscode
+
+# generated stylesheets
+/src/styles/tailwind.css
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment files
 .env
+.env.local
+.env.dev
+.env.prod
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Local Netlify folder
 .netlify
-
-.env.dev
-.env.prod

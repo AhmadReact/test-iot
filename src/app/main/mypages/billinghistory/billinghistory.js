@@ -37,7 +37,8 @@ import { formatNumber } from '../../pages/OrderSummary';
 import { setUser } from 'app/store/userSlice';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 
-const urlapi = process.env.REACT_APP_API;
+const configuredApi = process.env.NEXT_PUBLIC_API || process.env.REACT_APP_API || '/api/';
+const urlapi = configuredApi.endsWith('/') ? configuredApi : `${configuredApi}/`;
 
 const Billinghistory = () => {
   document.title = 'Billing';

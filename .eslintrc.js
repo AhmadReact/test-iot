@@ -11,7 +11,7 @@ module.exports = {
       presets: ["@babel/preset-react"],
     },
   },
-  extends: ["react-app", "airbnb", "plugin:prettier/recommended"],
+  extends: ["airbnb", "plugin:prettier/recommended"],
   plugins: ["prettier", "unused-imports"],
   settings: {
     "import/resolver": {
@@ -104,12 +104,6 @@ module.exports = {
     "unused-imports/no-unused-imports": "warn",
   },
   overrides: [
-    {
-      files: ["src/serviceWorker.js"],
-      rules: {
-        "no-console": "off",
-      },
-    },
     {
       files: ["src/app/main/services/**", "src/app/main/**/services.js"],
       rules: {

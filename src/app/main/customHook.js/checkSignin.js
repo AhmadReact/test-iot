@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import secureLocalStorage from 'react-secure-storage';
 import { useDispatch } from 'react-redux';
 
@@ -9,14 +8,14 @@ import { setUser } from 'app/store/userSlice';
 
 const checkSignin = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const navigate = useNavigate();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const dispatch = useDispatch();
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (secureLocalStorage.getItem('user_token') == null) {
-      navigate('/sign-in');
+      if (typeof window !== 'undefined') {
+        window.location.assign('/sign-in');
+      }
     } else {
       // checkout mode / on,off on suspension
       getcustomerdetail().then((detail) => {
@@ -33,7 +32,9 @@ const checkSignin = () => {
 
         dispatch(setUser(user));
 
-        if (JSON.parse(secureLocalStorage.getItem('user_info')).account_suspended == 1) {
+        const rawUserInfo = secureLocalStorage.getItem('user_info');
+        const userInfo = rawUserInfo ? JSON.parse(rawUserInfo) : null;
+        if (userInfo?.account_suspended === 1) {
           secureLocalStorage.setItem('mode', 'off');
         } else {
           secureLocalStorage.setItem('mode', 'on');

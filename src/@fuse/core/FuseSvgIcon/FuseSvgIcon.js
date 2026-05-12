@@ -45,7 +45,7 @@ const FuseSvgIcon = forwardRef((props, ref) => {
       sx={props.sx}
       color={props.color}
     >
-      <use xlinkHref={`assets/icons/${iconPath}`} />
+      <use xlinkHref={`/assets/icons/${iconPath}`} />
     </Root>
   );
 });

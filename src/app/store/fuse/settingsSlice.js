@@ -11,7 +11,6 @@ import {
 } from '@fuse/default-settings';
 import settingsConfig from 'app/configs/settingsConfig';
 import themeLayoutConfigs from 'app/theme-layouts/themeLayoutConfigs';
-import { setUser, updateUserSettings } from 'app/store/userSlice';
 import { darkPaletteText, lightPaletteText } from 'app/configs/themesConfig';
 
 export const changeFuseTheme = (theme) => (dispatch, getState) => {
@@ -71,6 +70,7 @@ export const setDefaultSettings = createAsyncThunk(
     const { settings } = fuse;
     const defaults = generateSettings(settings.defaults, val);
 
+    const { updateUserSettings } = await import('app/store/userSlice');
     dispatch(updateUserSettings(defaults));
 
     return {
@@ -105,16 +105,19 @@ const settingsSlice = createSlice({
       };
     },
   },
-  extraReducers: {
-    [setDefaultSettings.fulfilled]: (state, action) => action.payload,
-    [setUser.fulfilled]: (state, action) => {
-      const defaults = generateSettings(state.defaults, action.payload?.data?.settings);
-      return {
-        ...state,
-        defaults: _.merge({}, defaults),
-        current: _.merge({}, defaults),
-      };
-    },
+  extraReducers: (builder) => {
+    builder.addCase(setDefaultSettings.fulfilled, (state, action) => action.payload);
+    builder.addMatcher(
+      (action) => action.type === 'user/setUser/fulfilled',
+      (state, action) => {
+        const defaults = generateSettings(state.defaults, action.payload?.data?.settings);
+        return {
+          ...state,
+          defaults: _.merge({}, defaults),
+          current: _.merge({}, defaults),
+        };
+      }
+    );
   },
 });
 

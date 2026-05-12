@@ -2,7 +2,7 @@
 const path = require("path");
 
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   safelist: ["pl-24", "pl-40", "pl-56", "pl-72", "pl-80"],
   presets: [],
   darkMode: "class", // or 'class'
